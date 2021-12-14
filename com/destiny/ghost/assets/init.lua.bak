@@ -1,0 +1,13 @@
+template="tab"
+user_permission={
+  [1]	= "ACCESS_COARSE_LOCATION" ;
+  [2]	= "ACCESS_FINE_LOCATION" ;
+  [3]	= "ACCESS_NETWORK_STATE" ;
+  [4]	= "ACCESS_WIFI_STATE" ;
+  [5]	= "INTERNET" ;
+  [6]	= "WRITE_EXTERNAL_STORAGE" ;
+  } ;
+packagename="com.destiny.ghost"
+appver="利维坦之息"
+appname="Ghost"
+appcode="1020"

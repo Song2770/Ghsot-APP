@@ -1,0 +1,312 @@
+{
+  ["web"]	= {
+      ["浏览器用户标识"]	= "默认" ;
+      ["customUa"]	= "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5 Quark/2.4.2.986" ;
+      ["启用长按菜单"]	= true ;
+      ["启动网页"]	= "https://www.light.gg" ;
+      ["支持打开外部应用"]	= false ;
+      ["启用进度条"]	= true ;
+      ["网页沉浸"]	= false ;
+      } ;
+  ["events"]	= {
+      ["程序启动"]	= "--程序启动时会执行的事件\
+titleTvw.getPaint().setFakeBoldText(true)\
+titleTvw.setText(\"  LightGG\")\
+titleTvw.setTextSize(30)\
+local wid=this.getWidth()\
+fltBtn.setScaleX(1.15%wid)\
+fltBtn.setScaleY(1.15%wid)\
+fltBtn.setElevation(6)\
+menuBtn.setVisibility(8)\
+\
+--遮罩动画\
+--/*JsHD一键生成*/\13\
+layout={\13\
+  FrameLayout,\13\
+  layout_width=\"fill\",\13\
+  layout_height=\"fill\",\13\
+\13\
+  --你的界面布局\13\
+  {\13\
+    LinearLayout,\13\
+    orientation=\"vertical\",\13\
+    layout_width=\"fill\",\13\
+    layout_height=\"fill\",\13\
+    background=\"#00ffffff\";\13\
+    id=\"q\";\13\
+    {\13\
+      TextView,\13\
+      layout_width=\"fill\",\13\
+      layout_height=\"fill\",\13\
+      gravity=\"center\",\13\
+      textSize=\"15sp\",\13\
+      text=\"\",\13\
+    },\13\
+  },\13\
+\13\
+  --帧动画布局1\13\
+\13\
+  {\13\
+    LinearLayout,\13\
+    orientation=\"vertical\",\13\
+    layout_width=\"fill\",\13\
+    layout_height=\"fill\",\13\
+    background=\"#ff1d8ae7\";\13\
+    id=\"qdy\";\13\
+  },\13\
+  {\13\
+    LinearLayout,\13\
+    orientation=\"vertical\",\13\
+    layout_width=\"fill\",\13\
+    layout_height=\"fill\",\13\
+    background=\"#ff1d8ae7\",\13\
+    gravity=\"center\",\13\
+    id=\"qdt\",\13\
+          {\13\
+            LinearLayout;\13\
+            orientation='vertical';--重力属性\13\
+            layout_width='fill';--布局宽度\13\
+            layout_height='fill';--布局高度\13\
+            gravity='center';--默认居中\13\
+            id=\"进度条布局\";\13\
+            {\13\
+              ProgressBar;--默认圆圈\13\
+              id=\"进度条\";\13\
+            };\13\
+            {\13\
+              TextView;--文本控件\13\
+              layout_width='fill';--文本宽度\13\
+              layout_height='50dp';--文本高度\13\
+              id=\"qdwb\";\13\
+              gravity='center';--重力属性\13\
+              textColor='#ffffff';--文字颜色\13\
+              text=\"LightGG\";--显示的文字\
+              textSize='18sp';--文字大小\13\
+            };\13\
+\13\
+           {\13\
+              TextView;--文本控件\13\
+              layout_width='fill';--文本宽度\13\
+              id=\"qdwb_1\";\13\
+              gravity='center';--重力属性\13\
+              textColor='#ffffff';--文字颜色\13\
+              text=\"交流群：581398623。LightGG广告较多，如果因为广告屏蔽插件被\\n禁止访问网站，请加群反馈给作者。\\n汉化由小黑盒@HZBoxB 制作\\n\\n在线摧毁耳朵该找谁，速戳B站大喇叭580102\";--显示的文字\13\
+              textSize= 12%wid;--文字大小\13\
+            };\13\
+          };\13\
+ \13\
+  },\13\
+\13\
+\13\
+  {\13\
+    FrameLayout,--帧布局\13\
+    layout_width=\"fill\",\13\
+    layout_height=\"fill\",       \13\
+      {\13\
+      TextView;--文本控件\13\
+      layout_width='fill';--文本宽度\13\
+      layout_height='fill';--文本高度\13\
+      layout_marginBottom=\"15dp\";\13\
+      gravity=\"center|bottom\";--重力属性\13\
+      textColor='#ffffff';--文字颜色\13\
+      id=\"版权\";\13\
+      text='作者(小黑盒id)：妹妹克星是直男';--显示的文字\13\
+      textSize='16sp';--文字大小\13\
+      \13\
+      };\13\
+    };--帧布局\13\
+}\13\
+\13\
+drawerLayout.getParent().addView(loadlayout(layout))\13\
+  function CircleButton(view,InsideColor,radiu)\13\
+    drawable = GradientDrawable() \13\
+    drawable.setShape(GradientDrawable.RECTANGLE) \13\
+    drawable.setColor(InsideColor)\13\
+    drawable.setCornerRadii({radiu,radiu,radiu,radiu,radiu,radiu,radiu,radiu});\13\
+    view.setBackgroundDrawable(drawable)\13\
+  end\13\
+\13\
+import \"android.graphics.drawable.GradientDrawable\"\13\
+function 渐变(left_jb,right_jb,id)\13\
+  drawable = GradientDrawable(GradientDrawable.Orientation.TR_BL,{\13\
+    right_jb,--右色\13\
+    left_jb,--左色\13\
+  });\13\
+  id.setBackgroundDrawable(drawable)\13\
+end\13\
+\13\
+\13\
+\
+  function 退出动画()\13\
+    task(1200,function()\13\
+      揭露动画一 = AnimatorSet()\13\
+      揭露动画一 = ViewAnimationUtils.createCircularReveal(qdt,activity.getWidth(),0,Math.hypot(activity.getWidth(),activity.getHeight())/2,0);\13\
+      揭露动画一.setDuration(400)--设置动画时间\13\
+      揭露动画一.start()--开始动画\13\
+      揭露动画二 = ViewAnimationUtils.createCircularReveal(qdy,0,activity.getHeight(),Math.hypot(activity.getWidth(),activity.getHeight())/2,0);\13\
+      揭露动画二.setDuration(400)--设置动画时间\13\
+      揭露动画二.start()--开始动画\13\
+      版权.setVisibility(View.GONE)\13\
+    --动画监听\13\
+        揭露动画一.addListener(Animator.AnimatorListener{\13\
+          onAnimationStart=function(a)\13\
+          end,\13\
+          onAnimationEnd=function(a)\13\
+            qdt.setVisibility(View.GONE)\13\
+            qdy.setVisibility(View.GONE)\13\
+          end,\13\
+          onAnimationCancel=function(a)\13\
+          end,\13\
+          onAnimationRepeat=function(a)\13\
+          end,\13\
+        })\13\
+\13\
+    end)\13\
+  end--揭露动画--退出动画结束\13\
+  \13\
+  渐变(0xFF34467B,0xFFFFB86C,qdy) \13\
+  渐变(0xFF34467B,0xFFFFB86C,qdt) \13\
+\13\
+  进度条布局.setVisibility(View.VISIBLE)--显示控件\13\
+  进度条.IndeterminateDrawable.setColorFilter(PorterDuffColorFilter(0xffffff,PorterDuff.Mode.SRC_ATOP))\13\
+\13\
+  function 强制输入框(标题,消息,积极按钮名称)\13\
+    对话框()\13\
+    .设置标题(标题)\13\
+    .设置消息(消息)\13\
+    .设置积极按钮(积极按钮名称,function()\13\
+       loadstring([[return (canoffline or 退出程序())]])()\13\
+    end)\13\
+    .setCancelable(false)--禁用返回键\13\
+    .显示()\13\
+  end\13\
+\
+function webloading()\13\
+  task(200,function()\13\
+  webView.evaluateJavascript([[document.readyState]],function(a) \13\
+      if(a==\"\\\"complete\\\"\")then\13\
+        Http.get(webView.url,nil,\"utf8\",nil,function(code,html,b,c)\13\
+          标题文字=\"错误！\"..code\13\
+          if(code>=500)then\13\
+            jzyx=1\13\
+            强制输入框(标题文字,\"服务器错误，您输入的网址无法正常访问，服务器在处理请求的过程中发生了错误\",\"退出\")\13\
+          end\13\
+\13\
+          if(code>=400)and(code<=500)then\13\
+            jzyx=1\13\
+            强制输入框(标题文字,\"服务器错误，您输入的网址无法正常访问，服务器在处理请求的过程中发生了错误\",\"退出\")\13\
+          end\13\
+\13\
+          if(code<0)then--状态吗为-1无网  \13\
+              if(显示文字==\"无网络\")then\13\
+                else\13\
+                  jzyx=1\13\
+                强制输入框(标题文字,\"当前网络乎存在问题，错误返回\"..\" \"..code,\"退出\")\13\
+              end\13\
+          end\13\
+          if(code>=0 and code<400)then\13\
+             退出动画()\13\
+            \
+          end\13\
+        end)\13\
+     else\13\
+       webloading()\13\
+      end\13\
+    end)\13\
+  end)\13\
+end\13\
+\13\
+\13\
+\13\
+webloading()" ;
+      ["收到新标题"]	= "" ;
+      ["网页加载完毕"]	= "  function javascript()\13\
+    webView.evaluateJavascript([==[window.onload=function (){//18:02-25\
+        var hm = document.createElement(\"script\");\
+        hm.src = \"https://greasyfork.org/scripts/427267-simplified-chinese-for-light-gg/code/Simplified%20Chinese%20for%20lightgg.user.js\";\
+        var s = document.getElementsByTagName(\"title\")[0]; \
+        s.parentNode.insertBefore(hm, s);}]==],function() end)\13\
+  end" ;
+      ["网页即将加载"]	= "" ;
+      } ;
+  ["sidebar"]	= {
+      ["启用顶部图片"]	= false ;
+      ["启用"]	= true ;
+      ["items"]	= {
+          } ;
+      } ;
+  ["colors"]	= {
+      ["进度条"]	= "#ffffffff" ;
+      ["悬浮按钮图标"]	= "#ffffffff" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["顶栏"]	= "#ff47589d" ;
+      ["顶栏部件触摸"]	= "#22ffffff" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["顶栏部件"]	= "#ffffffff" ;
+      ["导航栏"]	= "#ff3ca1dd" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      ["悬浮按钮"]	= "#ff171c32" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      } ;
+  ["web_control"]	= {
+      [2]	= {
+          ["url"]	= "light.gg" ;
+          ["js"]	= "" ;
+          ["remove_element"]	= "horiz-ad clearfix,ac-lre-player,ac-player-ph,adsbygoogle,@ID(items-mid-horiz),@ID(items-mobile-bottom),@ID(home-mobile-bottom),@ID(video),@ID(site-search-container)" ;
+          } ;
+      [1]	= {
+          ["url"]	= "www.light.gg" ;
+          ["js"]	= "" ;
+          ["remove_element"]	= "horiz-ad clearfix,ac-lre-player,ac-player-ph,adsbygoogle,@ID(items-mid-horiz),@ID(items-mobile-bottom),@ID(home-mobile-bottom),@ID(video),@ID(site-search-container)" ;
+          } ;
+      } ;
+  ["fltBtn"]	= {
+      ["显示"]	= true ;
+      ["图标"]	= "" ;
+      ["点击事件"]	= "停止加载()\
+网页前进()" ;
+      } ;
+  ["toolbar"]	= {
+      ["搜索URL"]	= "https://www.light.gg/db/search/?q=%s" ;
+      ["输入栏模式"]	= false ;
+      ["menus"]	= {
+          } ;
+      ["搜索框提示"]	= "输入武器名称以在LightGG查询" ;
+      ["icon_btns"]	= {
+          [2]	= {
+              ["onClick"]	= "停止加载()\
+刷新网页()" ;
+              ["icon"]	= "icon" ;
+              } ;
+          [1]	= {
+              ["onClick"]	= "弹出消息(\"请稍候，翻译中...\\n可切换原文，译文\")\
+加载Js([==[\
+//13:41-03\
+        var hm = document.createElement(\"script\");\
+        hm.src = \"https://greasyfork.org/scripts/427267-simplified-chinese-for-light-gg/code/Simplified%20Chinese%20for%20lightgg.user.js\";\
+        var s = document.getElementsByTagName(\"title\")[0]; \
+        s.parentNode.insertBefore(hm, s);\
+]==])" ;
+              ["icon"]	= "icon (1)" ;
+              } ;
+          } ;
+      ["启用搜索功能"]	= true ;
+      } ;
+  ["view_attribute"]	= {
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["顶栏高度"]	= "60dp" ;
+      ["顶栏阴影强度"]	= "10dp" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      ["侧滑栏宽度"]	= "0dp" ;
+      ["顶栏标题"]	= "LightGG" ;
+      } ;
+  ["switch"]	= {
+      ["横屏"]	= false ;
+      ["启用启动图"]	= false ;
+      ["支持滑动页面"]	= true ;
+      ["显示状态栏"]	= true ;
+      } ;
+  } ;
